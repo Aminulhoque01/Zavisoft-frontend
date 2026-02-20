@@ -1,3 +1,8 @@
+import Image from "next/image";
+import heroImage from "../../app/assest/heroImage.jpg"
+import heroImage2 from "../../app/assest/hero2.jpg"
+import heroImage3 from "../../app/assest/hero3.jpg"
+
 export default function HeroSection() {
   return (
     <div className="  flex items-center justify-center  ">
@@ -11,43 +16,49 @@ export default function HeroSection() {
           <span className="text-blue-500">RIGHT</span>
         </h1>
 
-        {/* Product Card */}
-        <div className="relative bg-[#c98a2e] rounded-3xl overflow-hidden p-10 flex items-center justify-between">
+       
+
+        <div className="relative rounded-3xl overflow-hidden p-10 flex items-center justify-between min-h-[450px]">
           
-          {/* Left Content */}
-          <div className="text-white max-w-md">
-            <h2 className="text-4xl font-bold mb-4">NIKE AIR MAX</h2>
-            <p className="text-sm opacity-90 mb-6">
-              Nike introducing the new air max for everyone’s comfort
-            </p>
+          {/* Background Image */}
+          <Image
+            src={heroImage}
+            alt="Nike Shoe Background"
+            fill
+            priority
+            className="object-cover"
+          />
 
-            <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md text-sm font-semibold transition">
-              SHOP NOW
-            </button>
-          </div>
+          {/* Dark Overlay (optional but recommended) */}
+          <div className="absolute inset-0 bg-black/30"></div>
 
-          {/* Center Image */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <img
-              src="/shoe.png"
-              alt="Nike Shoe"
-              className="w-[420px] drop-shadow-2xl"
-            />
-          </div>
+          {/* Content Wrapper (important!) */}
+          <div className="relative z-5 flex items-center justify-between w-full mt-10 pt-10">
+            
+            {/* Left Content */}
+            <div className="text-white max-w-md">
+              <h2 className="text-4xl font-bold mb-4">NIKE AIR MAX</h2>
+              <p className="text-sm opacity-90 mb-6">
+                Nike introducing the new air max for everyone’s comfort
+              </p>
 
-          {/* Right Thumbnails */}
-          <div className="flex flex-col gap-4">
-            <div className="border-2 border-pink-500 rounded-xl p-1 bg-white">
-              <img src="/shoe.png" alt="" className="w-20 h-20 object-contain" />
+              <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md text-sm font-semibold transition">
+                SHOP NOW
+              </button>
             </div>
 
-            <div className="rounded-xl p-1 bg-white">
-              <img src="/shoe.png" alt="" className="w-20 h-20 object-contain" />
+            {/* Right Thumbnails */}
+            <div className="flex flex-col gap-4">
+              <div className="rounded p-1 ">
+                <Image src={heroImage2} alt="" width={180} height={80} className="object-contain rounded-md" />
+              </div>
+
+              <div className="rounded p-1 ">
+                <Image src={heroImage3} alt="" width={180} height={80} className="object-contain rounded-md" />
+              </div>
             </div>
+
           </div>
-
-          
-
         </div>
       </div>
     </div>
